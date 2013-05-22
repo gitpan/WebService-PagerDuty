@@ -3,7 +3,9 @@ abstract: 'Module to interface with the http://PagerDuty.com service'
 author:
   - 'Oleg Kostyuk <cub@cpan.org>'
 build_requires:
+  Test::LWP::UserAgent: 0
   Test::More: 0
+  Test::Most: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
@@ -16,13 +18,14 @@ name: WebService-PagerDuty
 recommends:
   JSON::XS: 0
 requires:
+  Class::Accessor: 0
+  Error: 0
   HTTP::Request: 0
   JSON: 0
   LWP::UserAgent: 0
-  Moo: 0
-  Try::Tiny: 0
   URI: 0
   URI::QueryParam: 0
+  base: 0
   strict: 0
   warnings: 0
-version: 0.05
+version: 0.07

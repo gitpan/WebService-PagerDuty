@@ -4,64 +4,52 @@
 ## no critic
 package WebService::PagerDuty;
 {
-  $WebService::PagerDuty::VERSION = '0.05';
+  $WebService::PagerDuty::VERSION = '0.07';
 }
 ## use critic
 use strict;
 use warnings;
 
-use Moo;
+use base qw/ WebService::PagerDuty::Base /;
 use URI;
 use WebService::PagerDuty::Event;
 use WebService::PagerDuty::Incidents;
 use WebService::PagerDuty::Schedules;
 
-has user => (
-    is       => 'ro',
-    required => 0,
-);
-has password => (
-    is       => 'ro',
-    required => 0,
-);
-has subdomain => (
-    is       => 'ro',
-    required => 0,
-);
-
-has use_ssl => (
-    is       => 'ro',
-    required => 0,
-    default  => sub { 1 },
+__PACKAGE__->mk_ro_accessors(
+    qw/
+      user
+      password
+      api_key
+      subdomain
+      use_ssl
+      event_url
+      incidents_url
+      schedules_url
+      /
 );
 
-has event_url => (
-    is       => 'ro',
-    required => 0,
-    lazy     => 1,
-    default  => sub {
-        my $self = shift;
-        URI->new( ( $self->use_ssl ? 'https' : 'http' ) . '://events.pagerduty.com/generic/2010-04-15/create_event.json' );
-    },
-);
-has incidents_url => (
-    is       => 'ro',
-    required => 0,
-    lazy     => 1,
-    default  => sub {
-        my $self = shift;
-        URI->new( 'https://' . $self->subdomain . '.pagerduty.com/api/v1/incidents' );
-    },
-);
-has schedules_url => (
-    is       => 'ro',
-    required => 0,
-    lazy     => 1,
-    default  => sub {
-        my $self = shift;
-        URI->new( 'https://' . $self->subdomain . '.pagerduty.com/api/v1/schedules' );
-    },
-);
+sub new {
+    my $self = shift;
+    $self->SUPER::new(
+        _defaults => {
+            use_ssl   => sub { 1 },
+            event_url => sub {
+                my $self = shift;
+                URI->new( ( $self->use_ssl ? 'https' : 'http' ) . '://events.pagerduty.com/generic/2010-04-15/create_event.json' );
+            },
+            incidents_url => sub {
+                my $self = shift;
+                URI->new( 'https://' . $self->subdomain . '.pagerduty.com/api/v1/incidents' );
+            },
+            schedules_url => sub {
+                my $self = shift;
+                URI->new( 'https://' . $self->subdomain . '.pagerduty.com/api/v1/schedules' );
+            },
+        },
+        @_
+    );
+}
 
 sub event {
     my $self = shift;
@@ -77,6 +65,7 @@ sub incidents {
         url      => $self->incidents_url,
         user     => $self->user,
         password => $self->password,
+        api_key  => $self->api_key,
         @_
     );
 }
@@ -87,6 +76,7 @@ sub schedules {
         url      => $self->schedules_url,
         user     => $self->user,
         password => $self->password,
+        api_key  => $self->api_key,
         @_
     );
 }
@@ -172,6 +162,10 @@ L<http://PagerDuty.com>, L<http://oDesk.com>
 =head1 AUTHOR
 
 Oleg Kostyuk (cubuanic), C<< <cub@cpan.org> >>
+
+=head1 CONTRIBUTORS
+
+Ryan Olson (Gimpson), C<< <gimpson@cpan.org> >> - support for B<api_key>
 
 =head1 LICENSE
 

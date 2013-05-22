@@ -4,27 +4,23 @@
 ## no critic
 package WebService::PagerDuty::Schedules;
 {
-  $WebService::PagerDuty::Schedules::VERSION = '0.05';
+  $WebService::PagerDuty::Schedules::VERSION = '0.07';
 }
 ## use critic
 use strict;
 use warnings;
 
-use Moo;
+use base qw/ WebService::PagerDuty::Base /;
 use URI;
 use WebService::PagerDuty::Request;
 
-has url => (
-    is       => 'ro',
-    required => 1,
-);
-has user => (
-    is       => 'ro',
-    required => 1,
-);
-has password => (
-    is       => 'ro',
-    required => 1,
+__PACKAGE__->mk_ro_accessors(
+    qw/
+      url
+      user
+      password
+      api_key
+      /
 );
 
 sub entries {
@@ -34,10 +30,11 @@ sub entries {
 
     die('WebService::PagerDuty::Schedules::entries(): id or schedule_id is required') unless defined $id;
 
-    return WebService::PagerDuty::Request->new->get(
+    return WebService::PagerDuty::Request->new->get_data(
         url      => URI->new( $self->url . '/' . $id . '/entries' ),
         user     => $self->user,
         password => $self->password,
+        api_key  => $self->api_key,
         params   => \%params,
     );
 }
