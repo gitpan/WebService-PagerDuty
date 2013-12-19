@@ -17,13 +17,13 @@ my %WriteMakefileArgs = (
   },
   "DISTNAME" => "WebService-PagerDuty",
   "EXE_FILES" => [],
-  "LICENSE" => "perl",
+  "LICENSE" => "bsd",
   "NAME" => "WebService::PagerDuty",
   "PREREQ_PM" => {
     "Class::Accessor" => 0,
     "Error" => 0,
     "HTTP::Request" => 0,
-    "JSON" => "2.23",
+    "JSON" => 0,
     "LWP::UserAgent" => 0,
     "URI" => 0,
     "URI::QueryParam" => 0,
@@ -32,11 +32,14 @@ my %WriteMakefileArgs = (
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
+    "File::Spec" => 0,
+    "IO::Handle" => 0,
+    "IPC::Open3" => 0,
     "Test::LWP::UserAgent" => 0,
     "Test::More" => 0,
     "Test::Most" => 0
   },
-  "VERSION" => "0.08",
+  "VERSION" => "1.20131219.1627",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -46,8 +49,11 @@ my %WriteMakefileArgs = (
 my %FallbackPrereqs = (
   "Class::Accessor" => 0,
   "Error" => 0,
+  "File::Spec" => 0,
   "HTTP::Request" => 0,
-  "JSON" => "2.23",
+  "IO::Handle" => 0,
+  "IPC::Open3" => 0,
+  "JSON" => 0,
   "LWP::UserAgent" => 0,
   "Test::LWP::UserAgent" => 0,
   "Test::More" => 0,

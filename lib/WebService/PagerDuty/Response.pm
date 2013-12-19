@@ -4,7 +4,7 @@
 ## no critic
 package WebService::PagerDuty::Response;
 {
-  $WebService::PagerDuty::Response::VERSION = '0.08';
+  $WebService::PagerDuty::Response::VERSION = '1.20131219.1627';
 }
 ## use critic
 use strict;
@@ -78,9 +78,19 @@ sub new {
 
 1;
 
+__END__
+
+=pod
+
+=encoding UTF-8
+
 =head1 NAME
 
-WebService::PagerDuty::Response - Aux object to represent PagerDuty responses.
+WebService::PagerDuty::Response
+
+=head1 VERSION
+
+version 1.20131219.1627
 
 =head1 SYNOPSIS
 
@@ -89,6 +99,10 @@ WebService::PagerDuty::Response - Aux object to represent PagerDuty responses.
 =head1 DESCRIPTION
 
 For internal use only.
+
+=head1 NAME
+
+WebService::PagerDuty::Response - Aux object to represent PagerDuty responses.
 
 =head1 SEE ALSO
 
@@ -104,11 +118,18 @@ Copyright by oDesk Inc., 2012
 
 All development sponsored by oDesk.
 
-=begin Pod::Coverage
+=for Pod::Coverage     new
 
-    new
+=head1 AUTHOR
 
-=end Pod::Coverage
+Oleg Kostyuk <cub@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Odesk Inc..
+
+This is free software, licensed under:
+
+  The (three-clause) BSD License
 
 =cut
-

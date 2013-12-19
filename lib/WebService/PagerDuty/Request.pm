@@ -4,7 +4,7 @@
 ## no critic
 package WebService::PagerDuty::Request;
 {
-  $WebService::PagerDuty::Request::VERSION = '0.08';
+  $WebService::PagerDuty::Request::VERSION = '1.20131219.1627';
 }
 ## use critic
 use strict;
@@ -75,9 +75,19 @@ sub _perform_request {
 
 1;
 
+__END__
+
+=pod
+
+=encoding UTF-8
+
 =head1 NAME
 
-WebService::PagerDuty::Request - Aux object to perform HTTP requests.
+WebService::PagerDuty::Request
+
+=head1 VERSION
+
+version 1.20131219.1627
 
 =head1 SYNOPSIS
 
@@ -87,6 +97,10 @@ WebService::PagerDuty::Request - Aux object to perform HTTP requests.
 =head1 DESCRIPTION
 
 For internal use only.
+
+=head1 NAME
+
+WebService::PagerDuty::Request - Aux object to perform HTTP requests.
 
 =head1 SEE ALSO
 
@@ -102,12 +116,19 @@ Copyright by oDesk Inc., 2012
 
 All development sponsored by oDesk.
 
-=begin Pod::Coverage
-
-    get_data
+=for Pod::Coverage     get_data
     post_data
 
-=end Pod::Coverage
+=head1 AUTHOR
+
+Oleg Kostyuk <cub@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Odesk Inc..
+
+This is free software, licensed under:
+
+  The (three-clause) BSD License
 
 =cut
-

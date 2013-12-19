@@ -4,7 +4,7 @@
 ## no critic
 package WebService::PagerDuty;
 {
-  $WebService::PagerDuty::VERSION = '0.08';
+  $WebService::PagerDuty::VERSION = '1.20131219.1627';
 }
 ## use critic
 use strict;
@@ -83,9 +83,19 @@ sub schedules {
 
 1;
 
+__END__
+
+=pod
+
+=encoding UTF-8
+
 =head1 NAME
 
-WebService::PagerDuty - Module to interface with the http://PagerDuty.com service
+WebService::PagerDuty
+
+=head1 VERSION
+
+version 1.20131219.1627
 
 =head1 SYNOPSIS
 
@@ -155,6 +165,10 @@ required or optional), see PagerDuty site:
 
 Also, you could explore tests in t/ directory of distribution archive.
 
+=head1 NAME
+
+WebService::PagerDuty - Module to interface with the http://PagerDuty.com service
+
 =head1 SEE ALSO
 
 L<http://PagerDuty.com>, L<http://oDesk.com>
@@ -183,13 +197,20 @@ This software is provided "as-is," without any express or implied warranty.
 In no event shall the author or sponsor be held liable for any damages
 arising from the use of the software.
 
-=begin Pod::Coverage
-
-    event
+=for Pod::Coverage     event
     incidents
     schedules
 
-=end Pod::Coverage
+=head1 AUTHOR
+
+Oleg Kostyuk <cub@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Odesk Inc..
+
+This is free software, licensed under:
+
+  The (three-clause) BSD License
 
 =cut
-

@@ -4,7 +4,7 @@
 ## no critic
 package WebService::PagerDuty::Incidents;
 {
-  $WebService::PagerDuty::Incidents::VERSION = '0.08';
+  $WebService::PagerDuty::Incidents::VERSION = '1.20131219.1627';
 }
 ## use critic
 use strict;
@@ -50,9 +50,19 @@ sub query {
 
 1;
 
+__END__
+
+=pod
+
+=encoding UTF-8
+
 =head1 NAME
 
-WebService::PagerDuty::Incidents - A incidents object
+WebService::PagerDuty::Incidents
+
+=head1 VERSION
+
+version 1.20131219.1627
 
 =head1 SYNOPSIS
 
@@ -68,6 +78,10 @@ WebService::PagerDuty::Incidents - A incidents object
 This class represents a basic incidents object, to get access
 to count and list of existing incidents.
 
+=head1 NAME
+
+WebService::PagerDuty::Incidents - A incidents object
+
 =head1 SEE ALSO
 
 L<WebService::PagerDuty>, L<http://PagerDuty.com>, L<oDesk.com>
@@ -82,13 +96,20 @@ Copyright by oDesk Inc., 2012
 
 All development sponsored by oDesk.
 
-=begin Pod::Coverage
-
-    count
+=for Pod::Coverage     count
     list
     query
 
-=end Pod::Coverage
+=head1 AUTHOR
+
+Oleg Kostyuk <cub@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Odesk Inc..
+
+This is free software, licensed under:
+
+  The (three-clause) BSD License
 
 =cut
-

@@ -4,7 +4,7 @@
 ## no critic
 package WebService::PagerDuty::Schedules;
 {
-  $WebService::PagerDuty::Schedules::VERSION = '0.08';
+  $WebService::PagerDuty::Schedules::VERSION = '1.20131219.1627';
 }
 ## use critic
 use strict;
@@ -42,9 +42,19 @@ sub entries {
 
 1;
 
+__END__
+
+=pod
+
+=encoding UTF-8
+
 =head1 NAME
 
-WebService::PagerDuty::Schedules - A schedules object
+WebService::PagerDuty::Schedules
+
+=head1 VERSION
+
+version 1.20131219.1627
 
 =head1 SYNOPSIS
 
@@ -57,6 +67,10 @@ WebService::PagerDuty::Schedules - A schedules object
 
 This class represents a basic schedules object, to get entries
 of existing schedules.
+
+=head1 NAME
+
+WebService::PagerDuty::Schedules - A schedules object
 
 =head1 SEE ALSO
 
@@ -72,12 +86,19 @@ Copyright by oDesk Inc., 2012
 
 All development sponsored by oDesk.
 
-=begin Pod::Coverage
-
-    entries
+=for Pod::Coverage     entries
     list
 
-=end Pod::Coverage
+=head1 AUTHOR
+
+Oleg Kostyuk <cub@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Odesk Inc..
+
+This is free software, licensed under:
+
+  The (three-clause) BSD License
 
 =cut
-

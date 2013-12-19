@@ -4,7 +4,7 @@
 ## no critic
 package WebService::PagerDuty::Event;
 {
-  $WebService::PagerDuty::Event::VERSION = '0.08';
+  $WebService::PagerDuty::Event::VERSION = '1.20131219.1627';
 }
 ## use critic
 use strict;
@@ -62,9 +62,19 @@ sub __construct_method {
 
 1;
 
+__END__
+
+=pod
+
+=encoding UTF-8
+
 =head1 NAME
 
-WebService::PagerDuty::Event - A event object
+WebService::PagerDuty::Event
+
+=head1 VERSION
+
+version 1.20131219.1627
 
 =head1 SYNOPSIS
 
@@ -81,6 +91,10 @@ WebService::PagerDuty::Event - A event object
 This class represents a basic event object, which could be triggered,
 acknowledged or resolved.
 
+=head1 NAME
+
+WebService::PagerDuty::Event - A event object
+
 =head1 SEE ALSO
 
 L<WebService::PagerDuty>, L<http://PagerDuty.com>, L<oDesk.com>
@@ -95,14 +109,21 @@ Copyright by oDesk Inc., 2012
 
 All development sponsored by oDesk.
 
-=begin Pod::Coverage
-
-    trigger
+=for Pod::Coverage     trigger
     acknowledge
     ack
     resolve
 
-=end Pod::Coverage
+=head1 AUTHOR
+
+Oleg Kostyuk <cub@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Odesk Inc..
+
+This is free software, licensed under:
+
+  The (three-clause) BSD License
 
 =cut
-
