@@ -4,11 +4,12 @@
 ## no critic
 package WebService::PagerDuty::Base;
 {
-  $WebService::PagerDuty::Base::VERSION = '0.07';
+  $WebService::PagerDuty::Base::VERSION = '0.08';
 }
 ## use critic
 use strict;
 use warnings;
+use Class::Accessor;
 
 use base qw/ Class::Accessor /;
 

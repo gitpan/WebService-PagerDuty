@@ -4,7 +4,7 @@
 ## no critic
 package WebService::PagerDuty::Response;
 {
-  $WebService::PagerDuty::Response::VERSION = '0.07';
+  $WebService::PagerDuty::Response::VERSION = '0.08';
 }
 ## use critic
 use strict;
@@ -35,7 +35,7 @@ sub new {
         $options->{errors}  = undef;
 
         try {
-            $options->{data} = jsonToObj( $response->content() ) if $response->content();
+            $options->{data} = from_json( $response->content() ) if $response->content();
         }
         otherwise {
             my $error = shift;

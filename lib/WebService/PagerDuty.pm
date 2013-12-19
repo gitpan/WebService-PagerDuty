@@ -4,7 +4,7 @@
 ## no critic
 package WebService::PagerDuty;
 {
-  $WebService::PagerDuty::VERSION = '0.07';
+  $WebService::PagerDuty::VERSION = '0.08';
 }
 ## use critic
 use strict;

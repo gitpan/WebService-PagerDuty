@@ -4,7 +4,7 @@
 ## no critic
 package WebService::PagerDuty::Schedules;
 {
-  $WebService::PagerDuty::Schedules::VERSION = '0.07';
+  $WebService::PagerDuty::Schedules::VERSION = '0.08';
 }
 ## use critic
 use strict;

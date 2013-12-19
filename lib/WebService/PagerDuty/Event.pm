@@ -4,7 +4,7 @@
 ## no critic
 package WebService::PagerDuty::Event;
 {
-  $WebService::PagerDuty::Event::VERSION = '0.07';
+  $WebService::PagerDuty::Event::VERSION = '0.08';
 }
 ## use critic
 use strict;

@@ -11,11 +11,7 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Module to interface with the http://PagerDuty.com service",
   "AUTHOR" => "Oleg Kostyuk <cub\@cpan.org>",
-  "BUILD_REQUIRES" => {
-    "Test::LWP::UserAgent" => 0,
-    "Test::More" => 0,
-    "Test::Most" => 0
-  },
+  "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
@@ -27,7 +23,7 @@ my %WriteMakefileArgs = (
     "Class::Accessor" => 0,
     "Error" => 0,
     "HTTP::Request" => 0,
-    "JSON" => 0,
+    "JSON" => "2.23",
     "LWP::UserAgent" => 0,
     "URI" => 0,
     "URI::QueryParam" => 0,
@@ -35,24 +31,39 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.07",
+  "TEST_REQUIRES" => {
+    "Test::LWP::UserAgent" => 0,
+    "Test::More" => 0,
+    "Test::Most" => 0
+  },
+  "VERSION" => "0.08",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
 
-unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
-  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
-  my $pp = $WriteMakefileArgs{PREREQ_PM};
-  for my $mod ( keys %$br ) {
-    if ( exists $pp->{$mod} ) {
-      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
-    }
-    else {
-      $pp->{$mod} = $br->{$mod};
-    }
-  }
+my %FallbackPrereqs = (
+  "Class::Accessor" => 0,
+  "Error" => 0,
+  "HTTP::Request" => 0,
+  "JSON" => "2.23",
+  "LWP::UserAgent" => 0,
+  "Test::LWP::UserAgent" => 0,
+  "Test::More" => 0,
+  "Test::Most" => 0,
+  "URI" => 0,
+  "URI::QueryParam" => 0,
+  "base" => 0,
+  "strict" => 0,
+  "warnings" => 0
+);
+
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  delete $WriteMakefileArgs{TEST_REQUIRES};
+  delete $WriteMakefileArgs{BUILD_REQUIRES};
+  $WriteMakefileArgs{PREREQ_PM} = \%FallbackPrereqs;
 }
 
 delete $WriteMakefileArgs{CONFIGURE_REQUIRES}

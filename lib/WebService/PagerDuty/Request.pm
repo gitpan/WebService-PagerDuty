@@ -4,7 +4,7 @@
 ## no critic
 package WebService::PagerDuty::Request;
 {
-  $WebService::PagerDuty::Request::VERSION = '0.07';
+  $WebService::PagerDuty::Request::VERSION = '0.08';
 }
 ## use critic
 use strict;
@@ -64,7 +64,7 @@ sub _perform_request {
     $headers->header( 'Authorization' => "Token token=$api_key" ) if $api_key;
 
     my $content = '';
-    $content = objToJson($body) if %$body;
+    $content = to_json($body) if %$body;
 
     my $request = HTTP::Request->new( $method, $url, $headers, $content );
 
